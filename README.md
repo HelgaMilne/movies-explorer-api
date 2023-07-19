@@ -1,9 +1,10 @@
-# movies-explorer-api
-
-#### Дипломный проект ***Movies***
-факультет Веб-разработки Яндекс Практикума
-
+# Дипломный проект ***Movies***
+* *факультет Веб-разработки Яндекс Практикума* *
+------
 Этот репозиторий содержит бэкенд часть приложения.
+------
+<br />
+<br />
 
 
 **Реализованы возможности:**
@@ -20,13 +21,14 @@
 
 * git
 * Node.js + Express + MongoDB
-
-
-Адрес репозитория: https://github.com/OlgaMilne/movies-explorer-api.git
+<br />
+<br />
+#### Ссылка на репозиторий проекта
+https://github.com/OlgaMilne/movies-explorer-api.git
 
 #### Ссылка на проект
 
-IP  158.160.065.077
+IP  158.160.065.079
 
 Frontend https://movies.nomoreparties.sbs
 
