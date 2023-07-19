@@ -20,11 +20,12 @@
 ● git
 ● Node.js + Express + MongoDB
 ```
------
+----
 
 #### Ссылка на репозиторий проекта
 https://github.com/OlgaMilne/movies-explorer-api.git
 
+----
 #### Ссылка на проект
 
 IP  158.160.065.079
