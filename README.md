@@ -19,8 +19,6 @@
 * git
 * Node.js + Express + MongoDB
 -----
-<br/>
-
 #### Ссылка на репозиторий проекта
 https://github.com/OlgaMilne/movies-explorer-api.git
 
