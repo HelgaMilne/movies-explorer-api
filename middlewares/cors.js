@@ -1,4 +1,8 @@
 const ALLOWED_DOMAINS = [
+  'https://cinema.nomoredomains.xyz',
+  'https://api.cinema.nomoredomains.xyz',
+  'http://cinema.nomoredomains.xyz',
+  'http://api.cinema.nomoredomains.xyz',
   'http://localhost:3000',
   'http://localhost:3001',
 ];

@@ -24,8 +24,8 @@ https://github.com/OlgaMilne/movies-explorer-api.git
 
 #### Ссылка на проект
 
-IP  158.160.065.079
+IP  130.193.52.154
 
-Frontend https://movies.nomoreparties.sbs
+Frontend https://cinema.nomoredomains.xyz
 
-Backend https://api.movies.nomoreparties.sbs
+Backend https://api.cinema.nomoredomains.xyz
