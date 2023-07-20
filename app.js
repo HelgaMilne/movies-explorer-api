@@ -21,7 +21,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const router = require('./routes');
 
-const { PORT = 3000, PATH_DB, NODE_ENV } = process.env;
+const { PORT = 3001, PATH_DB, NODE_ENV } = process.env;
 
 const pathDb = NODE_ENV === 'production' ? PATH_DB : 'mongodb://127.0.0.1:27017/testdb';
 
