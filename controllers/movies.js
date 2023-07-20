@@ -13,9 +13,18 @@ const getMovies = (req, res, next) => {
 const createMovie = (req, res, next) => {
   Movie.create(
     {
-      name: req.body.name,
-      link: req.body.link,
+      movieId: req.body.id,
       owner: req.user._id,
+      country: req.body.country,
+      director: req.body.director,
+      duration: req.body.duration,
+      year: req.body.year,
+      description: req.body.description,
+      image: req.body.image,
+      trailerLink: req.body.trailerLink,
+      thumbnail: req.body.thumbnail,
+      nameRU: req.body.nameRU,
+      nameEN: req.body.nameEN,
     },
   )
     .then((movie) => {
@@ -31,7 +40,7 @@ const createMovie = (req, res, next) => {
 };
 
 const deleteMovie = (req, res, next) => {
-  Movie.findById(req.params.MovieId)
+  Movie.findById(req.params._id)
     .orFail(() => new NotFoundError('Такой фильм не найден!'))
     .then((movie) => {
       if (!movie.owner.equals(req.user._id)) {

@@ -54,11 +54,11 @@ const movieSchema = new mongoose.Schema({
   },
   movieId: {
     type: Number,
-    required: [true, 'Поле "movieId" должно быть заполнено'],
+    required: true,
   },
   nameRU: {
     type: String,
-    required: [true, 'Поле "nameRU должно быть заполнено'],
+    required: [true, 'Поле "nameRU" должно быть заполнено'],
   },
   nameEN: {
     type: String,
@@ -66,4 +66,4 @@ const movieSchema = new mongoose.Schema({
   },
 }, { versionKey: false });
 
-module.exports = mongoose.model('card', movieSchema);
+module.exports = mongoose.model('movie', movieSchema);

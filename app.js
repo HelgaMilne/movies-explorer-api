@@ -23,7 +23,7 @@ const router = require('./routes');
 
 const { PORT = 3000, PATH_DB, NODE_ENV } = process.env;
 
-const pathDb = NODE_ENV === 'production' ? PATH_DB : 'mongodb://127.0.0.1:27017/bitfilmsdb';
+const pathDb = NODE_ENV === 'production' ? PATH_DB : 'mongodb://127.0.0.1:27017/testdb';
 
 const app = express();
 

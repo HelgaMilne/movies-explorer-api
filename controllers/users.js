@@ -46,8 +46,6 @@ const logIn = (req, res, next) => {
         _id: passedUser._id,
         email: passedUser.email,
         name: passedUser.name,
-        about: passedUser.about,
-        avatar: passedUser.avatar,
       });
     })
     .catch(next);
@@ -57,7 +55,7 @@ const logOut = (req, res) => {
   res.clearCookie('jwt').send({ message: 'Пользователь вышел' });
 };
 
-const getCurrentUser = (req, res, next) => {
+const getUser = (req, res, next) => {
   User.findById(req.user._id)
     .orFail(() => new NotFoundError('Такой пользователь не найден!'))
     .then((user) => res.send(user))
@@ -73,19 +71,15 @@ const createUser = (req, res, next) => {
       return bcryptjs.hash(String(req.body.password), 10)
         .then((hash) => {
           User.create({
+            name: req.body.name,
             email: req.body.email,
             password: hash,
-            name: req.body.name,
-            about: req.body.about,
-            avatar: req.body.avatar,
           })
             .then((newUser) => {
               res.status(201).send({
                 _id: newUser._id,
-                email: newUser.email,
                 name: newUser.name,
-                about: newUser.about,
-                avatar: newUser.avatar,
+                email: newUser.email,
               });
             })
             .catch((err) => {
@@ -102,12 +96,12 @@ const createUser = (req, res, next) => {
     });
 };
 
-const updateUserProfile = (req, res, next) => {
+const updateUser = (req, res, next) => {
   User.findByIdAndUpdate(
     req.user._id,
     {
       name: req.body.name,
-      about: req.body.about,
+      email: req.body.email,
     },
     { new: true },
   )
@@ -127,7 +121,7 @@ const updateUserProfile = (req, res, next) => {
 module.exports = {
   logIn,
   logOut,
-  getCurrentUser,
+  getUser,
   createUser,
-  updateUserProfile,
+  updateUser,
 };
