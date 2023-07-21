@@ -33,8 +33,8 @@ const createMovieValidation = celebrate({
     image: Joi.string().required().uri(),
     trailerLink: Joi.string().required().uri(),
     thumbnail: Joi.string().required().uri(),
-    nameRU: Joi.string().required().regex(/[а-яА-Я0-9\s\p{P}]{0,}/),
-    nameEN: Joi.string().required().regex(/[a-zA-Z0-9\s\p{P}]{0,}/),
+    nameRU: Joi.string().regex(/[а-яА-Я0-9\s\p{P}]{2,}/).required(),
+    nameEN: Joi.string().regex(/[a-zA-Z0-9\s\p{P}]{2,}/).required(),
   }),
 });
 
