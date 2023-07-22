@@ -4,7 +4,6 @@ const ALLOWED_DOMAINS = [
   'http://cinema.nomoredomains.xyz',
   'http://api.cinema.nomoredomains.xyz',
   'http://localhost:3000',
-  'http://localhost:3001',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';

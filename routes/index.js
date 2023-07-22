@@ -8,6 +8,8 @@ const { logIn, logOut, createUser } = require('../controllers/users');
 
 const NotFoundError = require('../errors/not-found-err');
 
+const { notFoundErrorPageMessage } = require('../utils/constants');
+
 router.post('/signin', signinValidation, logIn);
 
 router.post('/signup', signupValidation, createUser);
@@ -20,7 +22,7 @@ router.use('/users', require('./users'));
 router.use('/movies', require('./movies'));
 
 router.use('/*', (req, res, next) => {
-  next(new NotFoundError('Такой страницы не существует.'));
+  next(new NotFoundError(notFoundErrorPageMessage));
 });
 
 module.exports = router;
