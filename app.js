@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-warning-comments
 /* eslint-disable no-console */
 const express = require('express');
 
@@ -7,13 +8,13 @@ const mongoose = require('mongoose');
 
 const helmet = require('helmet');
 
-const rateLimit = require('express-rate-limit');
-
 const cookieParser = require('cookie-parser');
 
 const { errors } = require('celebrate');
 
 const cors = require('./middlewares/cors');
+
+const limiter = require('./middlewares/limiter');
 
 const errorsHandler = require('./middlewares/errorsHandler');
 
@@ -26,11 +27,6 @@ const { PORT = 3000, PATH_DB, NODE_ENV } = process.env;
 const pathDb = NODE_ENV === 'production' ? PATH_DB : 'mongodb://127.0.0.1:27017/testdb';
 
 const app = express();
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-});
 
 mongoose.connect(pathDb, {
   useNewUrlParser: true,
