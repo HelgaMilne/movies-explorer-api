@@ -127,9 +127,12 @@ const updateUser = (req, res, next) => {
       });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') {
+      if (err.name === 'ConflictError') {
+        next(new ConflictError(conflictErrorMessage));
+      } else if (err.name === 'ValidationError') {
         next(new BadRequestError(badRequestErrorMessage));
       } else {
+        console.log(err);
         next(err);
       }
     });
