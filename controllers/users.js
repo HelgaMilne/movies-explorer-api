@@ -132,7 +132,6 @@ const updateUser = (req, res, next) => {
       } else if (err.name === 'ValidationError') {
         next(new BadRequestError(badRequestErrorMessage));
       } else {
-        console.log(err);
         next(err);
       }
     });

@@ -3,12 +3,17 @@ const { internalServerErrorCode, internalServerErrorMessage } = require('../util
 module.exports = (err, req, res, next) => {
   const { statusCode = internalServerErrorCode, message } = err;
 
-  res
-    .status(statusCode)
-    .send({
-      message: statusCode === internalServerErrorCode
-        ? internalServerErrorMessage
-        : message,
-    });
+  res.send({
+    message: err,
+  });
+  /*
+    res
+      .status(statusCode)
+      .send({
+        message: statusCode === internalServerErrorCode
+          ? internalServerErrorMessage
+          : message,
+      });
+      */
   next();
 };
