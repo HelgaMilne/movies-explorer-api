@@ -1,5 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 
+const patternUrl = /^https?:\/\/(www\.)?[-a-zA-Z0-9_\-.]{1,}\.[a-zA-Z0-9]{2,3}\b(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)$#?/;
+
 const signinValidation = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -30,8 +32,8 @@ const createMovieValidation = celebrate({
     duration: Joi.number().integer().required(),
     year: Joi.string().required().min(4).max(4),
     description: Joi.string().required(),
-    image: Joi.string().required().uri(),
-    trailerLink: Joi.string().required().uri(),
+    image: Joi.string().required().regex(patternUrl),
+    trailerLink: Joi.string().required().regex(patternUrl),
     thumbnail: Joi.string().required().uri(),
     nameRU: Joi.string().regex(/[а-яА-Я0-9\s\p{P}]{2,}/).required(),
     nameEN: Joi.string().regex(/[a-zA-Z0-9\s\p{P}]{2,}/).required(),
