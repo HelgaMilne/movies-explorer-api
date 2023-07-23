@@ -16,9 +16,11 @@ const ConflictError = require('../errors/conflict-err');
 const {
   unauthorizedErrorMessage,
   notFoundErrorUserMessage,
-  conflictErrorMessage,
   badRequestErrorMessage,
+  conflictErrorUserMessage,
+  conflictErrorEmailMessage,
   signoutMessage,
+  duplicateKeyErrorCode,
   createdCode,
 } = require('../utils/constants');
 
@@ -81,7 +83,7 @@ const createUser = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (user) {
-        return Promise.reject(new ConflictError(conflictErrorMessage));
+        return Promise.reject(new ConflictError(conflictErrorUserMessage));
       }
       return bcryptjs.hash(String(req.body.password), 10)
         .then((hash) => {
@@ -127,8 +129,8 @@ const updateUser = (req, res, next) => {
       });
     })
     .catch((err) => {
-      if (err.name === 'ConflictError') {
-        next(new ConflictError(conflictErrorMessage));
+      if (err.code === duplicateKeyErrorCode) {
+        next(new ConflictError(conflictErrorEmailMessage));
       } else if (err.name === 'ValidationError') {
         next(new BadRequestError(badRequestErrorMessage));
       } else {
