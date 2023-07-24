@@ -2,8 +2,6 @@
 /* eslint-disable no-console */
 const express = require('express');
 
-require('dotenv').config();
-
 const mongoose = require('mongoose');
 
 const helmet = require('helmet');
@@ -22,15 +20,11 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const router = require('./routes');
 
-const { PORT = 3000, PATH_DB, NODE_ENV } = process.env;
-
-const { pathDBforDev } = require('./utils/devconfig');
-
-const pathDb = NODE_ENV === 'production' ? PATH_DB : pathDBforDev;
+const { DB, SERVER_PORT } = require('./utils/config');
 
 const app = express();
 
-mongoose.connect(pathDb, {
+mongoose.connect(DB, {
   useNewUrlParser: true,
 })
   .then(() => console.log('Подключили'))
@@ -51,4 +45,4 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorsHandler);
 
-app.listen(PORT, () => console.log(`Слушаю порт: ${PORT}`));
+app.listen(SERVER_PORT, () => console.log(`Слушаю порт: ${SERVER_PORT}`));

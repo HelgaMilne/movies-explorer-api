@@ -4,9 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
-const { NODE_ENV, JWT_SECRET_KEY } = process.env;
-
-const { jwtSecretKeyForDev } = require('../utils/devconfig');
+const { SECRET_KEY, SECURE_STATUS } = require('../utils/config');
 
 const NotFoundError = require('../errors/not-found-err');
 const BadRequestError = require('../errors/bad-request-err');
@@ -44,7 +42,7 @@ const logIn = (req, res, next) => {
         {
           _id: passedUser._id,
         },
-        NODE_ENV === 'production' ? JWT_SECRET_KEY : jwtSecretKeyForDev,
+        SECRET_KEY,
         {
           expiresIn: 3600 * 24 * 7,
         },
@@ -53,7 +51,7 @@ const logIn = (req, res, next) => {
         maxAge: 3600000 * 23 * 7,
         httpOnly: true,
         sameSite: 'None',
-        secure: NODE_ENV === 'production',
+        secure: SECURE_STATUS,
       });
       res.send({
         email: passedUser.email,
