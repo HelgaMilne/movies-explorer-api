@@ -26,7 +26,7 @@ const updateUserValidation = celebrate({
 
 const createMovieValidation = celebrate({
   body: Joi.object().keys({
-    id: Joi.number().integer().required(),
+    movieId: Joi.number().integer().required(),
     country: Joi.string().required(),
     director: Joi.string().required(),
     duration: Joi.number().integer().required(),
