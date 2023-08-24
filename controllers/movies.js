@@ -12,7 +12,7 @@ const {
 } = require('../utils/constants');
 
 const getMovies = (req, res, next) => {
-  Movie.find({})
+  Movie.find({ owner: req.user._id })
     .then((movies) => res.send(movies))
     .catch(next);
 };
@@ -47,13 +47,13 @@ const createMovie = (req, res, next) => {
 };
 
 const deleteMovie = (req, res, next) => {
-  Movie.findById(req.params._id)
+  Movie.findById(req.params.id)
     .orFail(() => new NotFoundError(notFoundErrorMovieMessage))
     .then((movie) => {
       if (!movie.owner.equals(req.user._id)) {
         return Promise.reject(new ForbiddenError(forbiddenErrorMessage));
       }
-      return Movie.findByIdAndRemove(req.params._id)
+      return Movie.findByIdAndRemove(req.params.id)
         .then((deletedMovie) => {
           res.send(deletedMovie);
         })

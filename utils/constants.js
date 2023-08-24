@@ -8,13 +8,13 @@ const internalServerErrorCode = 500;
 const duplicateKeyErrorCode = 11000;
 
 const badRequestErrorMessage = 'Вы ввели некорректные данные!';
-const unauthorizedErrorMessage = 'Неправильные почта или пароль!';
+const unauthorizedErrorMessage = 'Вы ввели неправильный логин или пароль!';
 const welcomeErrorMessage = 'Необходимо авторизироваться!';
 const forbiddenErrorMessage = 'Нет прав на удаление фильма!';
 const notFoundErrorUserMessage = 'Такой пользователь не найден!';
 const notFoundErrorMovieMessage = 'Такой фильм не найден!';
 const notFoundErrorPageMessage = 'Такой страницы не существует!';
-const conflictErrorUserMessage = 'Такой пользователь уже существует!';
+const conflictErrorUserMessage = 'Пользователь с таким email уже существует!';
 const conflictErrorEmailMessage = 'Такой email уже существует!';
 const conflictErrorMovieMessage = 'Такой фильм уже существует!';
 const internalServerErrorMessage = 'На сервере произошла ошибка!';
