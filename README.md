@@ -19,13 +19,9 @@
 * git
 * Node.js + Express + MongoDB
 -----
-#### Ссылка на репозиторий проекта
-https://github.com/OlgaMilne/movies-explorer-api.git
+#### Ссылка на репозиторий фронтенд-части проекта
+https://github.com/HelgaMilne/movies-explorer-frontend
 
 #### Ссылка на проект
-
-IP  130.193.52.154
-
 Frontend https://cinema.nomoredomains.xyz
-
 Backend https://api.cinema.nomoredomains.xyz
