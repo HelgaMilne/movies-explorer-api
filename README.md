@@ -16,8 +16,7 @@
 
 ###  Использованы технологии:
 
-* git
-* Node.js + Express + MongoDB
+* React + Node.js + Express + MongoDB
 -----
 #### Ссылка на репозиторий фронтенд-части проекта
 https://github.com/HelgaMilne/movies-explorer-frontend
