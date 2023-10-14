@@ -19,7 +19,7 @@
 
 ###  Использованы технологии:
 
-* Node.js + Express + MongoDB + Nginx + JWT + Postman
+> Node.js + Express + MongoDB + Nginx + JWT + Postman
 -----
 #### Ссылка на репозиторий фронтенд части проекта
 https://github.com/HelgaMilne/movies-explorer-frontend
