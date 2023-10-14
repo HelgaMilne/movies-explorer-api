@@ -16,14 +16,16 @@
 * реализованы асинхронные GET- и POST-запросы к API,
 * полученные фильмы фильтруются на стороне клиента.
 * проработаны авторизованные и неавторизованные состояния, сохранение фильмов в профиле
-
+-----
 ###  Использованы технологии:
-
+-----
 #### Node.js + Express + MongoDB + Nginx + JWT + Postman
-
+-----
 ###  Статус проекта:
 <img src="https://github.com/HelgaMilne/HelgaMilne/blob/main/src/images/passed_code_review.svg" alt="badge" width="160px">
+
 -----
+
 #### Ссылка на репозиторий фронтенд части проекта
 https://github.com/HelgaMilne/movies-explorer-frontend
 
